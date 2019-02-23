@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SortMeUpApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(SortMeUpApplication.class, args);
 	}
 

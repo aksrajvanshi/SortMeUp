@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../css/buttonStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/buttonStyle.css">
 </head>
 <body>
 
@@ -21,7 +21,24 @@
     <br>
     <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort">Bubble Sort</button>
     <button id="mersort" class="styled" name="Merge Sort" value="QuickAAAA Sort">Merge Sort Sort</button>
-    <button id="quisort" class="styled" name="Quick Sort" value="QuickAAAA Sort">Quick Sort</button>
+    <button id="quisort" class="styled" name="Quick Sort" value="QuickAAAA Sort" onclick="quickSort()">Quick Sort</button>
 </div>
 </body>
+
+
+<script>
+
+
+    function quickSort(){
+
+        var nums = $("#arrayText").val();
+        print(nums);
+
+    }
+
+
+
+
+</script>
 </html>
+
