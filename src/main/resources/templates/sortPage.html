@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -19,20 +19,35 @@
     <br>
     <br>
     <br>
-    <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort">Bubble Sort</button>
-    <button id="mersort" class="styled" name="Merge Sort" value="QuickAAAA Sort">Merge Sort Sort</button>
-    <button id="quisort" class="styled" name="Quick Sort" value="QuickAAAA Sort" onclick="quickSort()">Quick Sort</button>
+    <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort" onclick="sort(this.id)">Bubble Sort</button>
+    <button id="mersort" class="styled" name="Merge Sort" value="QuickAAAA Sort" onclick="sort(this.id)">Merge Sort Sort</button>
+    <button id="quisort" class="styled" name="Quick Sort" value="QuickAAAA Sort" onclick="sort(this.id)">Quick Sort</button>
 </div>
 </body>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
 
 
-    function quickSort(){
+    function sort(id){
 
-        var nums = $("#arrayText").val();
-        print(nums);
+        console.log("abcabc -> " + id);
+        var array = $('#arrayText').val();
+
+        console.log("array entered " + array);
+
+        $.ajax({
+            type: "GET",
+            url: "/sort",
+            data: 'id='
+                + encodeURIComponent(id) + '&amp;array' + encodeURIComponent(array),
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (data) {
+                alert("here");
+            }});
+
 
     }
 
