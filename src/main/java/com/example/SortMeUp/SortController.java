@@ -20,9 +20,9 @@ public class SortController {
 
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
     @ResponseBody
-    public String sortNumbers(@RequestParam("id") String id){
+    public String sortNumbers(@RequestParam("id") String id, @RequestParam("array") String arr){
 
-        System.out.println(" i am in the sort numbers function! " + id);
+        System.out.println(" i am in the sort numbers function! " + id + " with array values " + arr );
 
         return "sortPage";
     }

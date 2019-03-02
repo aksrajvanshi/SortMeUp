@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Sort Me Up</title>
+    <link rel="icon" href="/images/sortMeUp.png">
     <link rel="stylesheet" type="text/css" href="css/buttonStyle.css">
 </head>
 <body>
@@ -40,12 +41,11 @@
         $.ajax({
             type: "GET",
             url: "/sort",
-            data: 'id='
-                + encodeURIComponent(id) + '&amp;array' + encodeURIComponent(array),
+            data: {'id' : id, 'array': array},
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (data) {
-                alert("here");
+
             }});
 
 
