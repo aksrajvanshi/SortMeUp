@@ -20,6 +20,9 @@
     <br>
     <br>
     <br>
+    <p hidden="true" id="sortedArray" name="sortedArray"></p>
+    <br>
+    <br>
     <br>
     <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort" onclick="sort(this.id)">Bubble Sort</button>
     <button id="mersort" class="styled" name="Merge Sort" value="QuickAAAA Sort" onclick="sort(this.id)">Merge Sort Sort</button>
@@ -48,6 +51,8 @@
             dataType: "html",
             success: function (data) {
                 alert(data);
+                document.getElementById('sortedArray').hidden = false;
+                document.getElementById('sortedArray').innerHTML = data.toString();
             }});
 
 

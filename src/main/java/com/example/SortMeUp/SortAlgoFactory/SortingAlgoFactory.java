@@ -4,8 +4,10 @@ import com.example.SortMeUp.SortingAlgoBehaviors.bubbleSort;
 import com.example.SortMeUp.SortingAlgoBehaviors.mergeSort;
 import com.example.SortMeUp.SortingAlgoBehaviors.quickSort;
 import com.example.SortMeUp.SortingBehaviorInterface.SortingBehavior;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-public class SortingAlgoFactory {
+@SpringBootApplication
+public class SortingAlgoFactory{
 
     public SortingBehavior returnSortingAlgorithm(String id){
 
