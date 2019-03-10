@@ -29,7 +29,6 @@ public class SortController {
 
         int [] returnInputIntegerArray = processStringService.convertToIntArray(arr);
         String returnSortedArray = sortingService.sortNumbers(id, returnInputIntegerArray);
-        System.out.println(" i am in the sort numbers function! " + id + " with array values " + arr );
 
         return returnSortedArray;
     }

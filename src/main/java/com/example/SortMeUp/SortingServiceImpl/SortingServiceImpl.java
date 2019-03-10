@@ -21,17 +21,7 @@ public class SortingServiceImpl implements SortingService {
     public String sortNumbers(String sortingAlgo, int[] unsortedIntegerArray) {
 
         sortingBehavior = sortingAlgoFactoryService.returnSortingAlgorithm(sortingAlgo);
-
-        for(int i=0; i < unsortedIntegerArray.length; i++){
-            System.out.print(unsortedIntegerArray[i] + " ");
-        }
-
         int [] sortedArray = performSort(sortingBehavior, unsortedIntegerArray);
-        System.out.println(" Sorted array -> ");
-        for(int i=0; i < sortedArray.length; i++){
-            System.out.print(sortedArray[i] + " ");
-        }
-
         return Arrays.toString(sortedArray);
     }
 

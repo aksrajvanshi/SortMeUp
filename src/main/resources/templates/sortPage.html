@@ -50,7 +50,6 @@
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (data) {
-                alert(data);
                 document.getElementById('sortedArray').hidden = false;
                 document.getElementById('sortedArray').innerHTML = data.toString();
             }});
