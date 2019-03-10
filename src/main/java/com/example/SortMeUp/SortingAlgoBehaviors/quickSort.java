@@ -6,7 +6,7 @@ public class quickSort implements SortingBehavior {
 
     @Override
     public int[] sort(int[] arrayToBeSorted) {
-        return quickSortAlgorithm(arrayToBeSorted, 0 , arrayToBeSorted.length);
+        return quickSortAlgorithm(arrayToBeSorted, 0 , arrayToBeSorted.length-1);
     }
 
     public int[] quickSortAlgorithm(int []arr, int start, int end){

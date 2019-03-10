@@ -1,4 +1,5 @@
 package com.example.SortMeUp;
+import com.example.SortMeUp.Service.ProcessStringService;
 import com.example.SortMeUp.Service.SortingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +11,10 @@ import org.springframework.web.bind.annotation.*;
 public class SortController {
 
     @Autowired
-    SortingService sortingService;
+    private SortingService sortingService;
+
+    @Autowired
+    private ProcessStringService processStringService;
 
     @RequestMapping(value = "/")
     public String init(){
@@ -23,10 +27,11 @@ public class SortController {
     @ResponseBody
     public String sortNumbers(@RequestParam("id") String id, @RequestParam("array") String arr){
 
-        String returnSortedArray = sortingService.sortNumbers(id, arr);
+        int [] returnInputIntegerArray = processStringService.convertToIntArray(arr);
+        String returnSortedArray = sortingService.sortNumbers(id, returnInputIntegerArray);
         System.out.println(" i am in the sort numbers function! " + id + " with array values " + arr );
 
-        return arr;
+        return returnSortedArray;
     }
 
 }

@@ -6,6 +6,7 @@ import com.example.SortMeUp.SortingBehaviorInterface.SortingBehavior;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
+import java.util.Arrays;
 
 @Service
 @SpringBootApplication(scanBasePackages={"com.example.SortMeUp.SortAlgoFactory", "com.example.SortMeUp.SortingBehaviorInterface"})
@@ -17,13 +18,21 @@ public class SortingServiceImpl implements SortingService {
     SortingBehavior sortingBehavior;
 
     @Override
-    public String sortNumbers(String sortingAlgo, String array) {
+    public String sortNumbers(String sortingAlgo, int[] unsortedIntegerArray) {
 
-        System.out.println(" Inside service Impl " + sortingAlgo + " and with string array " + array);
         sortingBehavior = sortingAlgoFactoryService.returnSortingAlgorithm(sortingAlgo);
 
-    //    int [] sortedArray = performSort(sortingBehavior, array);
-        return array;
+        for(int i=0; i < unsortedIntegerArray.length; i++){
+            System.out.print(unsortedIntegerArray[i] + " ");
+        }
+
+        int [] sortedArray = performSort(sortingBehavior, unsortedIntegerArray);
+        System.out.println(" Sorted array -> ");
+        for(int i=0; i < sortedArray.length; i++){
+            System.out.print(sortedArray[i] + " ");
+        }
+
+        return Arrays.toString(sortedArray);
     }
 
     public int [] performSort(SortingBehavior sortingBehavior, int [] array){
