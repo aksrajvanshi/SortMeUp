@@ -1,5 +1,21 @@
 language: java
 jdk: oraclejdk8
 
+services:
+  - docker
+
 script:
-  - ./mvnw clean install -B
+  - ./mvnw clean install
+
+env:
+  global:
+    - travis encrypt DOCKER_EMAIL="akspri2730@gmail.com"
+    - travis encrypt DOCKER_USER="akspri2730"
+    - travis encrypt DOCKER_PASS="akshay1992"
+
+after_success:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+    - export REPO=akspri2730/sortmeup
+    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+    - docker build -f Dockerfile -t $REPO .
+    - docker push $REPO
