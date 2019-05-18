@@ -23,6 +23,10 @@
     <p hidden="true" id="sortedArray" name="sortedArray"></p>
     <br>
     <br>
+    <p hidden="true" id="runtime"> Runtime: </p>
+    <p hidden="true" id="timeToSort" name="timeToSort"></p>
+    <br>
+    <br>
     <br>
     <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort" onclick="sort(this.id)">Bubble Sort</button>
     <button id="mersort" class="styled" name="Merge Sort" value="Merge Sort" onclick="sort(this.id)">Merge Sort</button>
@@ -51,6 +55,9 @@
                 var mydata = JSON.parse(data);
                 document.getElementById('sortedArray').hidden = false;
                 document.getElementById('sortedArray').innerHTML = mydata.sortedArray;
+                document.getElementById('runtime').hidden = false;
+                document.getElementById('timeToSort').hidden = false;
+                document.getElementById('timeToSort').innerHTML = mydata.sortingTime;
             }});
 
 
