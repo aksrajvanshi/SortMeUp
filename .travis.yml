@@ -12,6 +12,7 @@ env:
     - travis encrypt DOCKER_EMAIL="akspri2730@gmail.com"
     - travis encrypt DOCKER_USER="akspri2730"
     - travis encrypt DOCKER_PASS="akshay1992"
+    - COMMIT=${TRAVIS_COMMIT::8}
 
 after_success:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
