@@ -25,7 +25,7 @@
     <br>
     <br>
     <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort" onclick="sort(this.id)">Bubble Sort</button>
-    <button id="mersort" class="styled" name="Merge Sort" value="Merge Sort" onclick="sort(this.id)">Merge Sort Sort</button>
+    <button id="mersort" class="styled" name="Merge Sort" value="Merge Sort" onclick="sort(this.id)">Merge Sort</button>
     <button id="quisort" class="styled" name="Quick Sort" value="Quick Sort" onclick="sort(this.id)">Quick Sort</button>
 </div>
 </body>
@@ -38,10 +38,7 @@
 
     function sort(id){
 
-        console.log("abcabc -> " + id);
         var array = $('#arrayText').val();
-
-        console.log("array entered " + array);
 
         $.ajax({
             type: "GET",
@@ -50,8 +47,10 @@
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (data) {
+                alert(data);
+                var mydata = JSON.parse(data);
                 document.getElementById('sortedArray').hidden = false;
-                document.getElementById('sortedArray').innerHTML = data.toString();
+                document.getElementById('sortedArray').innerHTML = mydata.sortedArray;
             }});
 
 
