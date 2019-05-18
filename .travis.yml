@@ -8,8 +8,9 @@ script:
   - ./mvnw clean install
 
 env:
-  - travis encrypt DOCKER_USER=”akspri2730”
-  - travis encrypt DOCKER_PASS=”akshay1992”
+  global:
+    - secure: travis encrypt DOCKER_USER=”akspri2730”
+    - secure: travis encrypt DOCKER_PASS=”akshay1992”
 
 after_success:
       - docker login -u $DOCKER_USER -p $DOCKER_PASS
