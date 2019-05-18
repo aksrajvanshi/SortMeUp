@@ -1,4 +1,4 @@
-FROM openjdk:7
+FROM frolvlad/alpine-java:jdk8-slim
 VOLUME /tmp
 
 ADD target/SortMeUp-0.0.1-SNAPSHOT.jar sortmeup.jar
