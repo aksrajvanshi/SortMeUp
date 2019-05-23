@@ -2,8 +2,10 @@ FROM frolvlad/alpine-java:jdk8-slim
 VOLUME /tmp
 
 EXPOSE 8080
-ARG JAR_FILE=target/SortMeUp-0.0.1-SNAPSHOT.jar
 
-ADD ${JAR_FILE} sortmeup.jar
+ADD ./target/SortMeUp-0.0.1-SNAPSHOT.jar myapp.jar
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/sortmeup.jar"]
+RUN sh -c 'touch /myapp.jar'
+
+ENTRYPOINT ["java","-jar","/myapp.jar"]
+EXPOSE 8080

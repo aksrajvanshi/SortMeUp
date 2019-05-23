@@ -19,3 +19,4 @@ after_success:
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
     - docker build -f Dockerfile -t $REPO .
     - docker push $REPO
+    - docker run -d -p 8080:8080 $REPO
