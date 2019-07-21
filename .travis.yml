@@ -9,9 +9,9 @@ script:
 
 env:
   global:
-    - travis encrypt DOCKER_EMAIL="akspri2730@gmail.com"
-    - travis encrypt DOCKER_USER="akspri2730"
-    - travis encrypt DOCKER_PASS="akshay1992"
+    - travis encrypt DOCKER_EMAIL="akshayrajvanshi1992@gmail.com"
+    - travis encrypt DOCKER_USER="akshayrajvanshi1992"
+    - travis encrypt DOCKER_PASS="Aksrajvanshi@1992"
 
 after_success:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS

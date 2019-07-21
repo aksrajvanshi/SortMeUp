@@ -1,7 +1,9 @@
 package com.example.SortMeUp.Service;
 
+import com.example.SortMeUp.Model.SorterModel;
+
 public interface ProcessStringService {
 
-    public int [] convertToIntArray(String inputString);
+    public void convertToIntArray(SorterModel sorterModel, String inputString);
 
 }

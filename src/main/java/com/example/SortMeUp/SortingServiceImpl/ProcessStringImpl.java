@@ -1,5 +1,6 @@
 package com.example.SortMeUp.SortingServiceImpl;
 
+import com.example.SortMeUp.Model.SorterModel;
 import com.example.SortMeUp.Service.ProcessStringService;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +9,8 @@ import java.util.ArrayList;
 @Service
 public class ProcessStringImpl implements ProcessStringService {
 
-
     @Override
-    public int[] convertToIntArray(String inputString) {
+    public void convertToIntArray(SorterModel sorterModel, String inputString) {
 
         ArrayList<Integer> returnArrayList = new ArrayList<>();
 
@@ -18,8 +18,24 @@ public class ProcessStringImpl implements ProcessStringService {
 
         for(int i=0; i < inputNumbersSplitted.length; i++){
 
-            if(!inputNumbersSplitted[i].equals("")){
-                returnArrayList.add(Integer.parseInt(inputNumbersSplitted[i]));
+            try {
+                if (!inputNumbersSplitted[i].equals("")) {
+
+                    returnArrayList.add(Integer.parseInt(inputNumbersSplitted[i]));
+                }
+            }catch (NumberFormatException e1){
+                sorterModel.setExceptionType(e1);
+                System.out.println(" Caught in exception 1" );
+                e1.printStackTrace();
+                sorterModel.setErrorMessage(" Given integer is not in proper format.");
+                return;
+            }
+            catch(IllegalArgumentException e2){
+                sorterModel.setExceptionType(e2);
+                System.out.println(" Caught in exception 2");
+                e2.printStackTrace();
+                sorterModel.setErrorMessage(" Illegal argument provided. ");
+                return;
             }
 
         }
@@ -28,6 +44,6 @@ public class ProcessStringImpl implements ProcessStringService {
             inputArray[i] = returnArrayList.get(i);
         }
 
-        return inputArray;
+        sorterModel.setInputArray(inputArray);
     }
 }
