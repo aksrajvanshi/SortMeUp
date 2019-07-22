@@ -25,16 +25,14 @@ public class ProcessStringImpl implements ProcessStringService {
                 }
             }catch (NumberFormatException e1){
                 sorterModel.setExceptionType(e1);
-                System.out.println(" Caught in exception 1" );
                 e1.printStackTrace();
-                sorterModel.setErrorMessage(" Given integer is not in proper format.");
+                sorterModel.setErrorMessage(" The given input is not in proper format. Please review the input and try again");
                 return;
             }
             catch(IllegalArgumentException e2){
                 sorterModel.setExceptionType(e2);
-                System.out.println(" Caught in exception 2");
                 e2.printStackTrace();
-                sorterModel.setErrorMessage(" Illegal argument provided. ");
+                sorterModel.setErrorMessage(" Wrong argument provided. ");
                 return;
             }
 
