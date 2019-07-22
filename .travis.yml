@@ -15,8 +15,7 @@ env:
 
 after_success:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-    - export REPO=sortmeup
+    - export REPO=akshayrajvanshi1992/sortmeup
     - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
     - docker build -f Dockerfile -t $REPO .
     - docker push $REPO
-    - docker run -d -p 8080:8080 $REPO
