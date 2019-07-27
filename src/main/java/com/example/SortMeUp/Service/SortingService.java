@@ -4,5 +4,5 @@ import com.example.SortMeUp.Model.SorterModel;
 
 public interface SortingService {
 
-    public int[] sortNumbers(String sortingAlgo, int [] inputIntegerArray, SorterModel sorterModel);
+    int[] sortNumbers(String sortingAlgo, int[] inputIntegerArray, SorterModel sorterModel);
 }

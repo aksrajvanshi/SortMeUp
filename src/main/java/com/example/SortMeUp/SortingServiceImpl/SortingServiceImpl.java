@@ -7,10 +7,11 @@ import com.example.SortMeUp.SortingBehaviorInterface.SortingBehavior;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
+
 import java.util.Arrays;
 
 @Service
-@SpringBootApplication(scanBasePackages={"com.example.SortMeUp.SortAlgoFactory", "com.example.SortMeUp.SortingBehaviorInterface"})
+@SpringBootApplication(scanBasePackages = {"com.example.SortMeUp.SortAlgoFactory", "com.example.SortMeUp.SortingBehaviorInterface"})
 public class SortingServiceImpl implements SortingService {
 
     @Autowired
@@ -26,15 +27,15 @@ public class SortingServiceImpl implements SortingService {
 
         sortingBehavior = sortingAlgoFactoryService.returnSortingAlgorithm(sortingAlgo);
         long startTime = System.nanoTime();
-        int [] sortedArray = performSort(sortingBehavior, unsortedIntegerArray);
-        long endTime   = System.nanoTime();
+        int[] sortedArray = performSort(sortingBehavior, unsortedIntegerArray);
+        long endTime = System.nanoTime();
         long totalTime = endTime - startTime;
         sorterModel.setSortedArray(sortedArray);
-        sorterModel.setSortingTime(totalTime/1000000.0);
+        sorterModel.setSortingTime(totalTime / 1000000.0);
         return sortedArray;
     }
 
-    public int [] performSort(SortingBehavior sortingBehavior, int [] array){
+    public int[] performSort(SortingBehavior sortingBehavior, int[] array) {
 
         return sortingBehavior.sort(array);
 

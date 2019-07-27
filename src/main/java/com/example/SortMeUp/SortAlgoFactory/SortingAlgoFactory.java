@@ -7,17 +7,15 @@ import com.example.SortMeUp.SortingBehaviorInterface.SortingBehavior;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SortingAlgoFactory{
+public class SortingAlgoFactory {
 
-    public SortingBehavior returnSortingAlgorithm(String id){
+    public SortingBehavior returnSortingAlgorithm(String id) {
 
-        if(id.equals("bubsort")){
+        if (id.equals("bubsort")) {
             return new bubbleSort();
-        }
-        else if(id.equals("mersort")){
+        } else if (id.equals("mersort")) {
             return new mergeSort();
-        }
-        else if(id.equals("quisort")){
+        } else if (id.equals("quisort")) {
             return new quickSort();
         }
 

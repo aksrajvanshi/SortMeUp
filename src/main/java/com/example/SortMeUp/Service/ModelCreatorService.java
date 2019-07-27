@@ -4,5 +4,5 @@ import com.example.SortMeUp.Model.SorterModel;
 
 public interface ModelCreatorService {
 
-    public SorterModel createModelObjectFromInput(String id, String arr);
+    SorterModel createModelObjectFromInput(String id, String arr);
 }

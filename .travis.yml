@@ -14,9 +14,9 @@ env:
     - travis encrypt DOCKER_PASS="Aksrajvanshi@1992"
 
 after_success:
-    - docker login -u $DOCKER_USER -p $DOCKER_PASS
-    - export REPO=akshayrajvanshi1992/sortmeup
-    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
-    - docker build -t sortmeup .
-    - docker tag sortmeup $REPO:$TAG
-    - docker push $REPO:$TAG
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - export REPO=akshayrajvanshi1992/sortmeup
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -t sortmeup .
+  - docker tag sortmeup $REPO:$TAG
+  - docker push $REPO:$TAG

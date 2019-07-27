@@ -4,6 +4,6 @@ import com.example.SortMeUp.Model.SorterModel;
 
 public interface ProcessStringService {
 
-    public void convertToIntArray(SorterModel sorterModel, String inputString);
+    void convertToIntArray(SorterModel sorterModel, String inputString);
 
 }

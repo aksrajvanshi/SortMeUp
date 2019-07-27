@@ -5,5 +5,5 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public interface SortingBehavior {
 
-    public int[] sort(int [] arrayToBeSorted);
+    int[] sort(int[] arrayToBeSorted);
 }

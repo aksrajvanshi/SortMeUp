@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Sort Me Up</title>
@@ -15,7 +15,7 @@
     <label> Enter numbers (Integers only separated by comma)</label>
     <br>
     <br>
-<label> [ </label> <input type="text" id="arrayText" > <label> ] </label>
+    <label> [ </label> <input type="text" id="arrayText"> <label> ] </label>
 
     <br>
     <br>
@@ -23,14 +23,15 @@
     <p hidden="true" id="sortedArray" name="sortedArray"></p>
     <br>
     <br>
-    <p hidden="true" id="runtime"> Time to run the algorithm is:  </p>
-    <p hidden="true" id="timeToSort" name="timeToSort"> </p>
+    <p hidden="true" id="runtime"> Time to run the algorithm is: </p>
+    <p hidden="true" id="timeToSort" name="timeToSort"></p>
     <p hidden="true" id="exception"> Error: </p>
     <p hidden="true" id="exceptionMessage"> Error: </p>
     <br>
     <br>
     <br>
-    <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort" onclick="sort(this.id)">Bubble Sort</button>
+    <button id="bubsort" class="styled" name="Bubble Sort" value="Bubble Sort" onclick="sort(this.id)">Bubble Sort
+    </button>
     <button id="mersort" class="styled" name="Merge Sort" value="Merge Sort" onclick="sort(this.id)">Merge Sort</button>
     <button id="quisort" class="styled" name="Quick Sort" value="Quick Sort" onclick="sort(this.id)">Quick Sort</button>
 </div>
@@ -42,26 +43,25 @@
 <script>
 
 
-    function sort(id){
+    function sort(id) {
 
         var array = $('#arrayText').val();
 
         $.ajax({
             type: "GET",
             url: "/sort",
-            data: {'id' : id, 'array': array},
+            data: {'id': id, 'array': array},
             contentType: "application/json; charset=utf-8",
             dataType: "html",
             success: function (data) {
                 var mydata = JSON.parse(data);
-                if(mydata.errorMessage == null && mydata.exceptionType == null){
+                if (mydata.errorMessage == null && mydata.exceptionType == null) {
                     document.getElementById('sortedArray').hidden = false;
                     document.getElementById('sortedArray').innerHTML = mydata.sortedArray;
                     document.getElementById('runtime').hidden = false;
                     document.getElementById('timeToSort').hidden = false;
                     document.getElementById('timeToSort').innerHTML = mydata.sortingTime;
-                }
-                else{
+                } else {
                     document.getElementById('sortedArray').hidden = true;
                     document.getElementById('runtime').hidden = true;
                     document.getElementById('timeToSort').hidden = true;
@@ -70,12 +70,11 @@
                     document.getElementById('exceptionMessage').innerHTML = mydata.errorMessage;
                 }
 
-            }});
+            }
+        });
 
 
     }
-
-
 
 
 </script>
