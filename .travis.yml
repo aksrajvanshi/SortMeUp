@@ -7,12 +7,6 @@ services:
 script:
   - ./mvnw clean install
 
-env:
-  global:
-    - travis encrypt DOCKER_EMAIL="akshayrajvanshi1992@gmail.com"
-    - travis encrypt DOCKER_USER="akshayrajvanshi1992"
-    - travis encrypt DOCKER_PASS="Aksrajvanshi@1992"
-
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - export REPO=akshayrajvanshi1992/sortmeup
