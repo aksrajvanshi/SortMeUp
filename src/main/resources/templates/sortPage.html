@@ -22,7 +22,6 @@
     <br>
     <p hidden="true" id="sortedArray" name="sortedArray"></p>
     <br>
-    <br>
     <p hidden="true" id="runtime"> Time to run the algorithm is: </p>
     <p hidden="true" id="timeToSort" name="timeToSort"></p>
     <p hidden="true" id="exception"> Error: </p>
@@ -57,6 +56,8 @@
                 var mydata = JSON.parse(data);
                 if (mydata.errorMessage == null && mydata.exceptionType == null) {
                     document.getElementById('sortedArray').hidden = false;
+                    document.getElementById('exception').hidden = true;
+                    document.getElementById('exceptionMessage').hidden = true;
                     document.getElementById('sortedArray').innerHTML = mydata.sortedArray;
                     document.getElementById('runtime').hidden = false;
                     document.getElementById('timeToSort').hidden = false;

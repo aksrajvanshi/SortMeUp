@@ -14,14 +14,14 @@ public class ProcessStringImpl implements ProcessStringService {
 
         ArrayList<Integer> returnArrayList = new ArrayList<>();
 
-        String[] inputNumbersSplitted = inputString.split(",");
+        String[] inputNumbersSplitted = inputString.trim().split(",");
 
         for (int i = 0; i < inputNumbersSplitted.length; i++) {
 
             try {
                 if (!inputNumbersSplitted[i].equals("")) {
 
-                    returnArrayList.add(Integer.parseInt(inputNumbersSplitted[i]));
+                    returnArrayList.add(Integer.parseInt(inputNumbersSplitted[i].trim()));
                 }
             } catch (NumberFormatException e1) {
                 sorterModel.setExceptionType(e1);
