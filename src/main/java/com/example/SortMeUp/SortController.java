@@ -25,6 +25,10 @@ public class SortController {
     @Autowired
     private ModelCreatorService modelCreatorService;
 
+    /**
+     * loads the initial page
+     * @return
+     */
     @RequestMapping(value = "/")
     public String init() {
 
