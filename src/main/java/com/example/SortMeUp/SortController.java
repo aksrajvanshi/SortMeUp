@@ -26,7 +26,7 @@ public class SortController {
     private ModelCreatorService modelCreatorService;
 
     /**
-     * loads the initial page
+     * loads the sorting page.
      * @return
      */
     @RequestMapping(value = "/")
@@ -35,7 +35,12 @@ public class SortController {
         return "sortPage";
     }
 
-
+    /**
+     * sorts the numbers as inputted.
+     * @param id
+     * @param arr
+     * @return
+     */
     @RequestMapping(value = "/sort", method = RequestMethod.GET)
     @ResponseBody
     public SorterModel sortNumbers(@RequestParam("id") String id, @RequestParam("array") String arr) {
